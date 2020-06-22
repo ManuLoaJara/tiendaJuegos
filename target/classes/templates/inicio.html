@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tienda de Juegos</title>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<form class="col-md-8 offset-2" th:action="@{/alquilarJuego}" th:method="post">
+		<div class="row">
+			<div class="col-md-6 form-group">
+				<label>Juego</label> 
+				<select id="idJuego" class="form-control" name="idJuego">
+					<option value="0">Seleccione...</option>
+					<option th:each="juego : ${juegos}" th:value="${juego.idJuego}"
+						th:text="${juego.titulo}"></option>
+				</select>
+			</div>
+			<div class="col-md-6 form-group">
+				<label>Cliente</label> 
+				<select id="idCliente" class="form-control" name="idCliente">
+					<option value="0">Seleccione...</option>
+					<option th:each="cliente : ${clientes}"
+						th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
+				</select>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" align="center">
+			    <button type="submit" class="btn btn-success">Alquilar</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
