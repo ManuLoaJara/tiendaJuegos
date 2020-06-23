@@ -36,6 +36,13 @@ public class TiendaService {
 		return respuesta;
 	}
 	
+	public Juego getJuegoById(String idJuego) {
+		String resutl = methodGet(urlServiceMocks + "juegos/" + idJuego);
+		Gson gson = new Gson();
+		Juego respuesta = gson.fromJson(resutl, new TypeToken<Juego>(){}.getType());
+		return respuesta;
+	}
+	
 	public List<Cliente> getClientes() {
 		String resutl = methodGet(urlServiceMocks + "clientes");
 		Gson gson = new Gson();
@@ -43,10 +50,24 @@ public class TiendaService {
 		return respuesta;
 	}
 	
+	public Cliente getClienteById(String idCliente) {
+		String resutl = methodGet(urlServiceMocks + "clientes/" + idCliente);
+		Gson gson = new Gson();
+		Cliente respuesta = gson.fromJson(resutl, new TypeToken<Cliente>(){}.getType());
+		return respuesta;
+	}
+	
 	public List<Compra> getCompras() {
 		String resutl = methodGet(urlServiceMocks + "compras");
 		Gson gson = new Gson();
 		List<Compra> respuesta = gson.fromJson(resutl, new TypeToken<List<Compra>>(){}.getType());
+		for (Compra compra : respuesta) {
+			Juego juego = getJuegoById(compra.getIdJuego().toString());
+			compra.setTituloJuego(juego.getTitulo());
+			compra.setPrecioJuego(juego.getPrecio());
+			Cliente cliente = getClienteById(compra.getIdCliente().toString());
+			compra.setNombreCliente(cliente.getNombre());
+		}
 		return respuesta;
 	}
 	

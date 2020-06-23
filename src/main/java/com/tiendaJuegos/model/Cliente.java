@@ -6,6 +6,8 @@ public class Cliente {
 	private String nombre;
 	private Integer edad;
 	
+	private Integer comprasRealizadas;
+	
 	public Long getIdCliente() {
 		return idCliente;
 	}
@@ -23,5 +25,11 @@ public class Cliente {
 	}
 	public void setEdad(Integer edad) {
 		this.edad = edad;
+	}
+	public Integer getComprasRealizadas() {
+		return comprasRealizadas;
+	}
+	public void setComprasRealizadas(Integer comprasRealizadas) {
+		this.comprasRealizadas = comprasRealizadas;
 	}
 }

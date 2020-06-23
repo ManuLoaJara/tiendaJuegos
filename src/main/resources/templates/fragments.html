@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body>
+	<div th:fragment="header-contend">
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" th:href="@{https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css}" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+		<!-- FontAwesome -->
+		<link rel="stylesheet" th:href="@{https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css}" />
+
+		<!-- Styles -->
+		<link th:href="@{/css/styles.css}" rel="stylesheet" />
+
+		<!-- JS -->
+		<script th:src="@{https://code.jquery.com/jquery-3.4.1.min.js}" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+		
+		<!-- Scripts -->
+		<script th:src="@{/js/scripts.js}"></script>
+
+		<!-- Datatable -->
+		<link rel="stylesheet" th:href="@{https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css}">
+		<script th:src="@{https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js}"></script>
+		<script th:src="@{https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js}"></script>
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tienda de Juegos</title>
+</head>
+<body>
+	<div th:replace="fragments :: header-contend"></div>
+	<p id="mensajeRespuesta" class="messagePopup"></p>
+	<form class="col-md-8 offset-2" th:action="@{/alquilarJuego}" th:method="post" onsubmit="return validarCampos()">
+		<br>
+		<div class="row">
+			<div class="col-md-4 form-group">
+				<label><strong style="color:red">*</strong> Juego</label> 
+				<select id="idJuego" class="form-control" name="idJuego">
+					<option value="0">Seleccione...</option>
+					<option th:each="juego : ${juegos}" th:value="${juego.idJuego}"
+						th:text="${juego.titulo}"></option>
+				</select>
+			</div>
+			<div class="col-md-4 form-group">
+				<label><strong style="color:red">*</strong> Cliente</label> 
+				<select id="idCliente" class="form-control" name="idCliente">
+					<option value="0">Seleccione...</option>
+					<option th:each="cliente : ${clientes}"
+						th:value="${cliente.idCliente}" th:text="${cliente.nombre}"></option>
+				</select>
+			</div>
+			<div class="col-md-4 form-group">
+				<label><strong style="color:red">*</strong> Días alquiler</label> 
+				<input type="number" id="dias" name="dias" class="form-control"/>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" align="center">
+			    <button type="submit" class="btn btn-success">Alquilar</button>
+			</div>
+		</div>
+	</form>
+</body>
+</html>
